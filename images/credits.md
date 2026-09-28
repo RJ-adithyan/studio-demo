@@ -38,3 +38,4 @@ Unsplash licence (https://unsplash.com/license) or Pexels licence (https://www.p
 - `p6-2.jpg` — Finn — https://unsplash.com/photos/1738220387197-e80e92386ae0 — Unsplash licence
 - `p6-3.jpg` — Pexels contributor — https://www.pexels.com/photo/28461045/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
 - `p6-4.jpg` — Pexels contributor — https://www.pexels.com/photo/7888656/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
+- `walk-d/`, `walk-m/` (scroll walkthrough frames) — Max Vakhtbovych — https://www.pexels.com/video/7533207/ — Pexels licence (from the 4K file, portrait set cropped from it, 2026-09-28)
