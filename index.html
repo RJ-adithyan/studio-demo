@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="images/home-hero.jpg">
-  <link rel="stylesheet" href="style.css?v=2.2">
-  <script src="site.js?v=2.2" defer></script>
+  <link rel="stylesheet" href="style.css?v=2.3">
+  <script src="site.js?v=2.3" defer></script>
 </head>
 <body class="page-home">
   <a class="skip" href="#main">Skip to content</a>
@@ -47,16 +47,14 @@
     </section>
 
     <section class="walk-section" aria-label="A walk through a furnished apartment">
-      <canvas class="walk-canvas" aria-hidden="true"></canvas>
-      <div class="walk-captions">
-        <p>Gather · oak and soft seating</p>
-        <p>Light · open glass, warm evenings</p>
-        <p>Rest · calm, quiet corners</p>
-      </div>
-      <div class="walk-stills">
-        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f001.webp"><img src="images/walk-d/f001.webp" alt="Oak dining table and soft chairs in a bright apartment" width="1440" height="810" loading="lazy"></picture><figcaption>Gather · oak and soft seating</figcaption></figure>
-        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f048.webp"><img src="images/walk-d/f048.webp" alt="A lounge of low sofas opening onto a pool terrace" width="1440" height="810" loading="lazy"></picture><figcaption>Light · open glass, warm evenings</figcaption></figure>
-        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f096.webp"><img src="images/walk-d/f096.webp" alt="A calm living room with plants and warm light" width="1440" height="810" loading="lazy"></picture><figcaption>Rest · calm, quiet corners</figcaption></figure>
+      <div class="walk-media">
+        <picture class="walk-poster" aria-hidden="true"><source media="(orientation: portrait), (max-width: 767px)" srcset="video/walk-m-poster.jpg"><img src="video/walk-d-poster.jpg" alt="" width="1920" height="1080" loading="lazy"></picture>
+        <video class="walk-video" muted loop playsinline autoplay preload="metadata" disablepictureinpicture aria-hidden="true" poster="video/walk-d-poster.jpg"></video>
+        <div class="walk-captions">
+          <p>Gather · oak and soft seating</p>
+          <p>Light · open glass, warm evenings</p>
+          <p>Rest · calm, quiet corners</p>
+        </div>
       </div>
     </section>
 

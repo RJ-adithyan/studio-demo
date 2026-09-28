@@ -128,141 +128,49 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
     });
   });
 
-  function setupWalk(ScrollTrigger) {
+  function setupWalkVideo() {
     const walk = document.querySelector('.walk-section');
-    if (!walk) return () => {};
-    const canvas = walk.querySelector('.walk-canvas');
-    const context = canvas.getContext('2d');
-    if (!context) return () => {};
-    const captions = [...walk.querySelectorAll('.walk-captions p')];
+    if (!walk) return;
+    const video = walk.querySelector('.walk-video');
     const portrait = matchMedia('(orientation: portrait), (max-width: 767px)');
-    let sourceKey, images, requested, wanted, next, inFlight, preloading, displayed = -1, generation = 0;
-    let trigger, observer;
+    let nearby = false;
+    let sourceKey;
 
-    const frameUrl = index => `images/walk-${sourceKey}/f${String(index + 1).padStart(3, '0')}.webp`;
-    const draw = () => {
-      if (!canvas.width || !images?.[0]) return;
-      let closest = 0;
-      for (let index = 1; index < images.length; index++) {
-        if (images[index] && Math.abs(index - wanted) < Math.abs(closest - wanted)) closest = index;
-      }
-      if (closest === displayed) return;
-      const image = images[closest];
-      const scale = Math.max(canvas.width / image.naturalWidth, canvas.height / image.naturalHeight);
-      const width = canvas.width / scale;
-      const height = canvas.height / scale;
-      context.drawImage(image, (image.naturalWidth - width) / 2, (image.naturalHeight - height) / 2,
-        width, height, 0, 0, canvas.width, canvas.height);
-      displayed = closest;
-    };
-    const resizeCanvas = () => {
-      if (!walk.classList.contains('walk-ready')) return;
-      const rect = canvas.getBoundingClientRect();
-      const ratio = Math.min(devicePixelRatio || 1, 2);
-      const width = Math.round(rect.width * ratio);
-      const height = Math.round(rect.height * ratio);
-      if (canvas.width !== width || canvas.height !== height) {
-        canvas.width = width;
-        canvas.height = height;
-        displayed = -1;
-      }
-      draw();
-    };
-    const showCaptions = progress => {
-      captions.forEach((caption, index) => {
-        const enter = index ? Math.min(1, Math.max(0, (progress - index / 3 + .025) / .05)) : 1;
-        const leave = index < 2 ? Math.min(1, Math.max(0, ((index + 1) / 3 + .025 - progress) / .05)) : 1;
-        caption.style.opacity = Math.min(enter, leave);
-      });
-    };
-    const pump = () => {
-      if (!preloading) return;
-      while (inFlight < 4) {
-        let index;
-        if (!requested.has(wanted)) index = wanted;
-        else {
-          while (next < 96 && requested.has(next)) next++;
-          if (next === 96) break;
-          index = next++;
+    const syncVideo = () => {
+      const key = portrait.matches ? 'm' : 'd';
+      video.poster = `video/walk-${key}-poster.jpg`;
+      video.autoplay = !reduced.matches;
+      if (sourceKey !== key || reduced.matches) {
+        video.pause();
+        walk.classList.remove('walk-playing');
+        if (video.hasAttribute('src')) {
+          video.removeAttribute('src');
+          video.load();
         }
-        requested.add(index);
-        const token = generation;
-        const image = new Image();
-        inFlight++;
-        image.onload = () => {
-          if (token !== generation) return;
-          images[index] = image;
-          inFlight--;
-          draw();
-          pump();
-        };
-        image.onerror = () => { if (token === generation) { inFlight--; pump(); } };
-        image.src = frameUrl(index);
+        sourceKey = key;
       }
+      if (!nearby || document.hidden || reduced.matches) {
+        video.pause();
+        return;
+      }
+      if (!video.hasAttribute('src')) {
+        video.src = `video/walk-${key}.mp4`;
+        video.load();
+      }
+      video.play().catch(() => { /* Poster remains visible when autoplay is blocked. */ });
     };
-    const start = () => {
-      generation++;
-      trigger?.kill();
-      observer?.disconnect();
-      walk.classList.remove('walk-ready');
-      sourceKey = portrait.matches ? 'm' : 'd';
-      images = [];
-      requested = new Set([0]);
-      wanted = 0;
-      next = 1;
-      inFlight = 0;
-      preloading = false;
-      displayed = -1;
-      const token = generation;
-      const first = new Image();
-      first.onload = () => {
-        if (token !== generation) return;
-        images[0] = first;
-        walk.classList.add('walk-ready');
-        resizeCanvas();
-        trigger = ScrollTrigger.create({
-          trigger: walk, start: 'top top',
-          end: () => '+=' + Math.round(innerHeight * (portrait.matches ? 1.8 : 2.5)),
-          pin: true, scrub: true,
-          onUpdate(self) {
-            wanted = Math.round(self.progress * 95);
-            draw();
-            if (self.isActive) { preloading = true; pump(); }
-            showCaptions(self.progress);
-          },
-        });
-        wanted = Math.round(trigger.progress * 95);
-        draw();
-        showCaptions(trigger.progress);
-        observer = new IntersectionObserver(entries => {
-          if (!entries.some(entry => entry.isIntersecting)) return;
-          observer.disconnect();
-          preloading = true;
-          pump();
-        }, { rootMargin: '100% 0px' });
-        observer.observe(walk);
-        ScrollTrigger.refresh();
-      };
-      first.src = frameUrl(0);
-    };
-    const onResize = () => {
-      if (sourceKey !== (portrait.matches ? 'm' : 'd')) start();
-      else resizeCanvas();
-    };
-    portrait.addEventListener('change', onResize);
-    addEventListener('resize', onResize);
-    addEventListener('orientationchange', onResize);
-    start();
-    return () => {
-      generation++;
-      portrait.removeEventListener('change', onResize);
-      removeEventListener('resize', onResize);
-      removeEventListener('orientationchange', onResize);
-      observer?.disconnect();
-      trigger?.kill();
-      walk.classList.remove('walk-ready');
-    };
+    video.addEventListener('playing', () => walk.classList.add('walk-playing'));
+    portrait.addEventListener('change', syncVideo);
+    reduced.addEventListener('change', syncVideo);
+    document.addEventListener('visibilitychange', syncVideo);
+    syncVideo();
+    const observer = new IntersectionObserver(entries => {
+      nearby = entries[0].isIntersecting;
+      syncVideo();
+    }, { rootMargin: '100% 0px' });
+    observer.observe(walk);
   }
+  setupWalkVideo();
 
   async function startMotion() {
     try {
@@ -278,7 +186,22 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
       const phone = matchMedia('(max-width: 767px)');
       media.add('(prefers-reduced-motion: no-preference)', () => {
         const splits = [];
-        const stopWalk = setupWalk(ScrollTrigger);
+        const walk = document.querySelector('.walk-section');
+        if (walk) {
+          const media = walk.querySelector('.walk-media');
+          gsap.fromTo(media, { clipPath: 'inset(12% 8% round 4px)' }, {
+            clipPath: 'inset(0% 0% round 0px)', ease: 'none',
+            scrollTrigger: { trigger: walk, start: 'top bottom', end: 'top top', scrub: 0.5 },
+          });
+          gsap.fromTo(walk.querySelectorAll('.walk-poster, .walk-video'), { scale: 1.15 }, {
+            scale: 1, ease: 'none',
+            scrollTrigger: { trigger: walk, start: 'top bottom', end: 'top top', scrub: 0.5 },
+          });
+          gsap.from(walk.querySelectorAll('.walk-captions p'), {
+            opacity: 0, y: 16, duration: 0.9, stagger: 0.22, ease: 'power2.out',
+            scrollTrigger: { trigger: walk, start: 'top 70%', once: true },
+          });
+        }
         document.querySelectorAll('[data-lines]').forEach(el => {
           const label = el.innerText.replace(/\s+/g, ' ').trim();
           splits.push(SplitText.create(el, {
@@ -303,7 +226,7 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
             clipPath: 'inset(0 0 0% 0)', duration: phone.matches ? 0.55 : 1.65, ease: 'power3.inOut', clearProps: 'clipPath',
           }).fromTo(img, { scale: 1.08 }, { scale: 1, duration: phone.matches ? 0.6 : 1.9, ease: 'power3.out' }, 0);
         });
-        return () => { stopWalk(); splits.forEach(split => split.revert()); };
+        return () => { splits.forEach(split => split.revert()); };
       });
       media.add('(min-width: 900px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)', () => {
         document.querySelectorAll('[data-parallax]').forEach(frame => {

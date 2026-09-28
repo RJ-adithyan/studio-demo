@@ -38,5 +38,5 @@ Unsplash licence (https://unsplash.com/license) or Pexels licence (https://www.p
 - `p6-2.jpg` — Finn — https://unsplash.com/photos/1738220387197-e80e92386ae0 — Unsplash licence
 - `p6-3.jpg` — Pexels contributor — https://www.pexels.com/photo/28461045/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
 - `p6-4.jpg` — Pexels contributor — https://www.pexels.com/photo/7888656/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
-- `walk-d/` (laptop scroll walkthrough frames) — Pexels contributor — https://www.pexels.com/video/18531414/ — Pexels licence (4K file, 2026-09-29)
-- `walk-m/` (phone scroll walkthrough frames, first 14 s) — Pexels contributor — https://www.pexels.com/video/14959266/ — Pexels licence (2026-09-29)
+- `../video/walk-d.mp4` (laptop looping video, 9 s) — Pexels contributor — https://www.pexels.com/video/18531414/ — Pexels licence (4K file, 2026-09-29)
+- `../video/walk-m.mp4` (phone looping video, first 10 s) — Pexels contributor — https://www.pexels.com/video/14959266/ — Pexels licence (2026-09-29)

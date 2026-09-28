@@ -456,23 +456,18 @@ body { overflow-x: clip; }
 .next-project { padding-block: 70px 20px; }
 .next-project .link { max-width: 100%; }
 .next-project p:first-child .link { font: 400 clamp(27px, 3.5vw, 46px)/1.2 var(--serif); padding-bottom: 16px; }
-.walk-section { position: relative; background: var(--paper-2); }
-.walk-stills figure { margin: 0; }
-.walk-stills img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
-.walk-stills figcaption { padding: 18px 24px 34px; font: 400 28px/1.1 var(--serif); }
-.walk-canvas, .walk-captions { display: none; }
-.walk-ready { height: 100svh; overflow: hidden; color: var(--white); }
-.walk-ready .walk-stills { display: none; }
-.walk-ready .walk-canvas { display: block; width: 100%; height: 100%; }
-.walk-ready .walk-captions { display: block; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(20,17,13,.5), transparent 38%); }
-.walk-captions p { position: absolute; top: 120px; left: 24px; right: 24px; margin: 0; opacity: 0; font: 400 clamp(28px, 4vw, 42px)/1.05 var(--serif); text-shadow: 0 2px 14px rgba(20,17,13,.45); }
-.walk-captions p:first-child { opacity: 1; }
-.walk-canvas { object-fit: cover; }
-@media (min-width: 768px) and (orientation: landscape) {
-  .walk-stills img { aspect-ratio: 16 / 9; }
-  .walk-stills figcaption { padding: 22px 64px 50px; }
-  .walk-ready .walk-captions { background: linear-gradient(0deg, rgba(20,17,13,.55), transparent 35%); }
-  .walk-captions p { top: auto; bottom: 64px; left: 64px; }
+.walk-section { height: 80svh; min-height: 480px; background: var(--paper-2); color: var(--white); }
+.walk-media { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.walk-poster, .walk-video, .walk-poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.walk-video { opacity: 0; }
+.walk-playing .walk-video { opacity: 1; }
+.walk-media::after { content: ""; position: absolute; inset: 0; background: rgba(20,17,13,.2); pointer-events: none; }
+.walk-captions { position: absolute; z-index: 1; bottom: 32px; left: 24px; right: 24px; pointer-events: none; }
+.walk-captions p { margin: 0 0 8px; font: 400 clamp(24px, 3vw, 38px)/1.08 var(--serif); text-shadow: 0 2px 12px rgba(20,17,13,.55); }
+.walk-captions p:last-child { margin-bottom: 0; }
+@media (min-width: 768px) {
+  .walk-section { height: 100svh; }
+  .walk-captions { bottom: 64px; left: 64px; right: 64px; }
 }
 [data-photo], [data-parallax] { overflow: hidden; }
 .motion-line { padding-bottom: .1em; margin-bottom: -.1em; }
@@ -513,6 +508,9 @@ html.lenis, html.lenis body { height: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .walk-media { clip-path: none !important; }
+  .walk-poster, .walk-video { transform: none !important; }
+  .walk-video { display: none; }
   [data-photo] { clip-path: none !important; }
   [data-photo] img, [data-parallax] img, .motion-line { transform: none !important; }
   .intro-screen { display: none; }
