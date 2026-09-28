@@ -2,18 +2,18 @@
 
 Unsplash licence (https://unsplash.com/license) or Pexels licence (https://www.pexels.com/license/); both free for commercial use, no permission needed.
 
-- `home-hero.jpg` — POOJAN THANEKAR — https://unsplash.com/photos/1745429523617-0d837856ca35 — Unsplash licence
+- `home-hero.jpg` — Curtis Adams — https://www.pexels.com/photo/14495885/ — Pexels licence (replaced 2026-09-28)
 - `home-2.jpg` — Yudhajit Ghosh — https://unsplash.com/photos/1720843059158-8901f5a71b19 — Unsplash licence
 - `home-3.jpg` — Pexels contributor — https://www.pexels.com/photo/6636320/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
 - `about-1.jpg` — Karolina Grabowska — https://unsplash.com/photos/1667400104764-a5fd01a919b0 — Unsplash licence
 - `about-2.jpg` — Vitaly Gariev — https://unsplash.com/photos/1753162656029-781d67c7f6e6 — Unsplash licence
 - `services-1.jpg` — Alesia Kazantceva — https://unsplash.com/photos/1601993957728-1e56ab70c5a8 — Unsplash licence
-- `p1-hero.jpg` — Pexels contributor — https://www.pexels.com/photo/11701115/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
-- `p1-1.jpg` — Pexels contributor — https://www.pexels.com/photo/1571460/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
-- `p1-2.jpg` — Pexels contributor — https://www.pexels.com/photo/5028844/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
-- `p1-3.jpg` — Pexels contributor — https://www.pexels.com/photo/33054912/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
-- `p1-4.jpg` — Puscas Adryan — https://unsplash.com/photos/1772797583328-f83bc3f94f80 — Unsplash licence
-- `p2-hero.jpg` — Zoshua Colah — https://unsplash.com/photos/1719299224395-d972420665a9 — Unsplash licence
+- `p1-hero.jpg` — AJ Ahamad — https://www.pexels.com/photo/33636638/ — Pexels licence (replaced 2026-09-28)
+- `p1-1.jpg` — AJ Ahamad — https://www.pexels.com/photo/33636640/ — Pexels licence (replaced 2026-09-28)
+- `p1-2.jpg` — AJ Ahamad — https://www.pexels.com/photo/33636639/ — Pexels licence (replaced 2026-09-28)
+- `p1-3.jpg` — AJ Ahamad — https://www.pexels.com/photo/33636637/ — Pexels licence (replaced 2026-09-28)
+- `p1-4.jpg` — AJ Ahamad — https://www.pexels.com/photo/33636641/ — Pexels licence (replaced 2026-09-28)
+- `p2-hero.jpg` — Pew Nguyen — https://www.pexels.com/photo/13573493/ — Pexels licence (replaced 2026-09-28)
 - `p2-1.jpg` — Kirke Kiki — https://unsplash.com/photos/1763914766799-e90cd89d9764 — Unsplash licence
 - `p2-2.jpg` — Pexels contributor — https://www.pexels.com/photo/32735264/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
 - `p2-3.jpg` — Garv Chaplot — https://unsplash.com/photos/1697722231233-41e1dc4c10d5 — Unsplash licence
@@ -38,4 +38,5 @@ Unsplash licence (https://unsplash.com/license) or Pexels licence (https://www.p
 - `p6-2.jpg` — Finn — https://unsplash.com/photos/1738220387197-e80e92386ae0 — Unsplash licence
 - `p6-3.jpg` — Pexels contributor — https://www.pexels.com/photo/28461045/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
 - `p6-4.jpg` — Pexels contributor — https://www.pexels.com/photo/7888656/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
-- `walk-d/`, `walk-m/` (scroll walkthrough frames) — Max Vakhtbovych — https://www.pexels.com/video/7533207/ — Pexels licence (from the 4K file, portrait set cropped from it, 2026-09-28)
+- `walk-d/` (laptop scroll walkthrough frames) — Pexels contributor — https://www.pexels.com/video/18531414/ — Pexels licence (4K file, 2026-09-29)
+- `walk-m/` (phone scroll walkthrough frames, first 14 s) — Pexels contributor — https://www.pexels.com/video/14959266/ — Pexels licence (2026-09-29)

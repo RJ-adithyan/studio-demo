@@ -1,6 +1,6 @@
 // Shared navigation and motion. Content stays readable when a CDN is unavailable.
-const WHATSAPP_NUMBER = '910000000000';
-const WHATSAPP_TEXT = 'Hello, I saw your website and would like to talk about a project.';
+const WHATSAPP_NUMBER = "";
+const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site like this for my studio.";
 
 (() => {
   document.documentElement.classList.add('js');
@@ -15,6 +15,14 @@ const WHATSAPP_TEXT = 'Hello, I saw your website and would like to talk about a 
     link.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(WHATSAPP_TEXT);
     link.target = '_blank';
     link.rel = 'noopener';
+  });
+  const sampleBar = document.querySelector('.sample-bar');
+  try {
+    if (sessionStorage.getItem('tharaavu-sample-bar-dismissed')) document.documentElement.classList.add('sample-bar-dismissed');
+  } catch { /* Keep the bar visible when storage is unavailable. */ }
+  sampleBar?.querySelector('.sample-bar-close').addEventListener('click', () => {
+    document.documentElement.classList.add('sample-bar-dismissed');
+    try { sessionStorage.setItem('tharaavu-sample-bar-dismissed', '1'); } catch { /* Dismiss for this page only. */ }
   });
   const page = location.pathname.split('/').pop() || 'index.html';
   const current = /^project-\d+\.html$/.test(page) ? 'projects.html' : page;
@@ -267,6 +275,7 @@ const WHATSAPP_TEXT = 'Hello, I saw your website and would like to talk about a 
       const { gsap, ScrollTrigger, SplitText } = window;
       gsap.registerPlugin(ScrollTrigger, SplitText);
       const media = gsap.matchMedia();
+      const phone = matchMedia('(max-width: 767px)');
       media.add('(prefers-reduced-motion: no-preference)', () => {
         const splits = [];
         const stopWalk = setupWalk(ScrollTrigger);
@@ -277,9 +286,10 @@ const WHATSAPP_TEXT = 'Hello, I saw your website and would like to talk about a 
             onSplit(self) {
               el.setAttribute('aria-label', label);
               return gsap.from(self.lines, {
-                yPercent: 100, duration: 1.2, ease: 'expo.out', stagger: 0.075,
-                delay: el.closest('.home-hero') ? Math.max(0, (900 - (performance.now() - introStarted)) / 1000) : 0,
-                scrollTrigger: { trigger: el, start: 'top 94%', once: true },
+                yPercent: 100, duration: phone.matches ? 0.55 : 1.2, ease: 'expo.out', stagger: phone.matches ? 0.025 : 0.075,
+                delay: !phone.matches && el.closest('.home-hero') ? Math.max(0, (900 - (performance.now() - introStarted)) / 1000) : 0,
+                scrollTrigger: { trigger: el, start: phone.matches ? 'top 90%' : 'top 94%', once: true, fastScrollEnd: true,
+                  onEnter: self => { if (Math.abs(self.getVelocity()) > 1200) self.animation?.progress(1); } },
               });
             },
           }));
@@ -287,10 +297,11 @@ const WHATSAPP_TEXT = 'Hello, I saw your website and would like to talk about a 
         document.querySelectorAll('[data-photo]').forEach(frame => {
           const img = frame.querySelector('img');
           if (!img) return;
-          const tl = gsap.timeline({ scrollTrigger: { trigger: frame, start: 'top 94%', once: true } });
+          const tl = gsap.timeline({ scrollTrigger: { trigger: frame, start: phone.matches ? 'top 90%' : 'top 94%', once: true, fastScrollEnd: true,
+            onEnter: self => { if (Math.abs(self.getVelocity()) > 1200) self.animation?.progress(1); } } });
           tl.fromTo(frame, { clipPath: 'inset(0 0 100% 0)' }, {
-            clipPath: 'inset(0 0 0% 0)', duration: 1.65, ease: 'power3.inOut', clearProps: 'clipPath',
-          }).fromTo(img, { scale: 1.08 }, { scale: 1, duration: 1.9, ease: 'power3.out' }, 0);
+            clipPath: 'inset(0 0 0% 0)', duration: phone.matches ? 0.55 : 1.65, ease: 'power3.inOut', clearProps: 'clipPath',
+          }).fromTo(img, { scale: 1.08 }, { scale: 1, duration: phone.matches ? 0.6 : 1.9, ease: 'power3.out' }, 0);
         });
         return () => { stopWalk(); splits.forEach(split => split.revert()); };
       });

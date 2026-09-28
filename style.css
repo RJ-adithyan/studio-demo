@@ -286,14 +286,21 @@ body { overflow-x: clip; }
 .home-text-link:hover span { transform: translate(3px, -3px); }
 
 /* An immediately visible photograph, with a small, legible navigation layer. */
-.site-header { position: fixed; inset: 0 0 auto; background: var(--paper); color: var(--ink); border: 0; backdrop-filter: none; -webkit-backdrop-filter: none; transition: background .35s, color .35s; }
+.sample-bar { position: fixed; inset: 0 0 auto; z-index: 60; height: 56px; display: grid; place-items: center; background: var(--paper-2); color: var(--ink); border-bottom: 1px solid var(--line); }
+.sample-bar-inner { position: relative; width: 100%; max-width: 1600px; padding: 5px 42px 5px 16px; text-align: center; font: 400 12px/1.45 var(--sans); }
+.sample-bar a { margin-left: 8px; white-space: nowrap; color: var(--clay); text-decoration: underline; text-underline-offset: 3px; }
+.sample-bar-close { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border: 0; background: none; color: var(--ink); font: 400 22px/1 var(--sans); cursor: pointer; }
+.sample-bar-dismissed .sample-bar { display: none; }
+.site-header { position: fixed; inset: 56px 0 auto; background: var(--paper); color: var(--ink); border: 0; backdrop-filter: none; -webkit-backdrop-filter: none; transition: background .35s, color .35s; }
+.sample-bar-dismissed .site-header { top: 0; }
 .site-header .container { max-width: 1600px; padding-inline: 24px; }
 .page-home .site-header { background: transparent; color: var(--white); }
 .site-header.is-scrolled, .nav-open .site-header { background: var(--paper); color: var(--ink); }
 .nav { height: 78px; }
 .nav .brand { font-size: 28px; }
 .nav-toggle { color: inherit; font-size: 12px; letter-spacing: .05em; min-width: 48px; min-height: 44px; }
-.nav-links { inset: 78px 0 0; height: calc(100dvh - 78px); color: var(--ink); padding: 52px 24px; gap: 14px; overflow-y: auto; }
+.nav-links { inset: 134px 0 0; height: calc(100dvh - 134px); color: var(--ink); padding: 52px 24px; gap: 14px; overflow-y: auto; }
+.sample-bar-dismissed .nav-links { top: 78px; height: calc(100dvh - 78px); }
 .nav-links a { font-size: 42px; }
 .nav-links a[aria-current="page"] { color: inherit; }
 .nav-open .wa-btn { visibility: hidden; }
@@ -353,6 +360,8 @@ body { overflow-x: clip; }
 .wa-btn svg { width: 23px; height: 23px; }
 
 @media (min-width: 900px) {
+  .sample-bar { height: 36px; }
+  .site-header { top: 36px; }
   .home-wrap, .site-header .container, .site-footer .container { padding-inline: 64px; }
   .nav { height: 96px; }
   .nav .brand { font-size: 32px; }
@@ -436,6 +445,7 @@ body { overflow-x: clip; }
 .contact-block dl { gap: 32px; align-content: start; }
 .page-contact .page-header + .section { padding-top: 20px; }
 .contact-block dd { font-size: clamp(25px, 2.5vw, 34px); overflow-wrap: anywhere; max-width: 17em; }
+.sample-detail-note dd { font-size: 13px; color: var(--ink-soft); }
 .contact-block .photo { aspect-ratio: 4 / 5; }
 .section--contact { background: var(--paper-2); padding-block: 90px; margin-top: 70px; }
 .cta { text-align: center; }

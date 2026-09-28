@@ -4,8 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studio Tharaavu · Interiors and architecture, Bangalore</title>
-  <meta name="description" content="Considered interiors, natural materials and spaces that feel like home. Studio Tharaavu, Bangalore. A fictional studio by RJ.">
+  <meta name="description" content="A sample interior studio website by RJ. Considered interiors, natural materials and spaces that feel like home.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta property="og:title" content="Studio Tharaavu · sample site by RJ">
+  <meta property="og:description" content="A sample interior studio website. Your studio's version: 5 pages, live in 7 days.">
+  <meta property="og:image" content="https://rj-adithyan.github.io/studio-demo/images/og.jpg">
+  <meta property="og:url" content="https://rj-adithyan.github.io/studio-demo/index.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="images/home-hero.jpg">
@@ -14,6 +20,7 @@
 </head>
 <body class="page-home">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="sample-bar" role="region" aria-label="Sample site offer"><div class="sample-bar-inner"><span>Sample site by RJ · Your studio&#39;s version: 5 pages, live in 7 days</span> <a data-wa href="contact.html">WhatsApp RJ</a><button class="sample-bar-close" type="button" aria-label="Dismiss sample site offer">×</button></div></div>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
       <a class="brand" href="index.html">Studio Tharaavu</a>
@@ -39,6 +46,20 @@
       <span class="home-hero-location" aria-hidden="true">Rooted in India.<br>Made for living.</span>
     </section>
 
+    <section class="walk-section" aria-label="A walk through a furnished apartment">
+      <canvas class="walk-canvas" aria-hidden="true"></canvas>
+      <div class="walk-captions">
+        <p>Gather · oak and soft seating</p>
+        <p>Light · open glass, warm evenings</p>
+        <p>Rest · calm, quiet corners</p>
+      </div>
+      <div class="walk-stills">
+        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f001.webp"><img src="images/walk-d/f001.webp" alt="Oak dining table and soft chairs in a bright apartment" width="1440" height="810" loading="lazy"></picture><figcaption>Gather · oak and soft seating</figcaption></figure>
+        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f048.webp"><img src="images/walk-d/f048.webp" alt="A lounge of low sofas opening onto a pool terrace" width="1440" height="810" loading="lazy"></picture><figcaption>Light · open glass, warm evenings</figcaption></figure>
+        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f096.webp"><img src="images/walk-d/f096.webp" alt="A calm living room with plants and warm light" width="1440" height="810" loading="lazy"></picture><figcaption>Rest · calm, quiet corners</figcaption></figure>
+      </div>
+    </section>
+
     <section class="home-introduction home-wrap" aria-labelledby="studio-title">
       <p class="home-label">The studio</p>
       <div>
@@ -55,7 +76,7 @@
       </div>
       <div class="home-project-grid">
         <a class="home-project home-project-wide" href="project-2.html">
-          <div class="home-project-photo" data-photo><img src="images/p2-3.jpg" alt="A sunlit courtyard garden framed by dark stone walls" width="1400" height="933" loading="lazy" decoding="async"></div>
+          <div class="home-project-photo" data-photo><img src="images/p2-hero.jpg" alt="A sunlit courtyard garden framed by dark stone walls" width="1400" height="933" loading="lazy" decoding="async"></div>
           <div class="home-project-caption"><h3>Kayal House</h3><span>Kochi · Residential</span><span class="home-project-arrow" aria-hidden="true">↗</span></div>
         </a>
         <a class="home-project home-project-narrow" href="project-1.html">
@@ -93,24 +114,10 @@
     </section>
 
 
-    <section class="walk-section" aria-label="A walk through a furnished apartment">
-      <canvas class="walk-canvas" aria-hidden="true"></canvas>
-      <div class="walk-captions">
-        <p>Living · linen and stone</p>
-        <p>Light · sheer curtains, open glass</p>
-        <p>Detail · marble and glass</p>
-      </div>
-      <div class="walk-stills">
-        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f001.webp"><img src="images/walk-d/f001.webp" alt="White linen sofa beside a stone-clad fireplace" width="1600" height="900"></picture><figcaption>Living · linen and stone</figcaption></figure>
-        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f048.webp"><img src="images/walk-d/f048.webp" alt="Sheer curtains softening daylight across a white sofa" width="1600" height="900" loading="lazy"></picture><figcaption>Light · sheer curtains, open glass</figcaption></figure>
-        <figure><picture><source media="(orientation: portrait), (max-width: 767px)" srcset="images/walk-m/f096.webp"><img src="images/walk-d/f096.webp" alt="Marble-topped coffee table in a bright living room" width="1600" height="900" loading="lazy"></picture><figcaption>Detail · marble and glass</figcaption></figure>
-      </div>
-    </section>
-
     <section class="home-contact home-wrap" aria-labelledby="contact-title">
       <p class="home-label">Begin a conversation</p>
       <h2 id="contact-title" data-lines>A place of <em>your own.</em></h2>
-      <a class="home-text-link" data-wa href="contact.html">Tell us about your space <span aria-hidden="true">↗</span></a>
+      <a class="home-text-link" data-wa href="contact.html">WhatsApp RJ about your site <span aria-hidden="true">↗</span></a>
     </section>
   </main>
 
@@ -125,14 +132,14 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <ul class="footer-links">
-          <li><a href="mailto:hello@studiotharaavu.in">hello@studiotharaavu.in</a></li>
-          <li><a data-wa href="contact.html">WhatsApp <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:hello@studiotharaavu.in">Sample email: hello@studiotharaavu.in</a></li>
+          <li><a data-wa href="contact.html">WhatsApp RJ <span aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
       <p class="demo-note">© <span data-year>2026</span> · Demo site by RJ. This studio is fictional.</p>
     </div>
   </footer>
-  <a class="wa-btn" data-wa href="contact.html" aria-label="Chat on WhatsApp">
+<a class="wa-btn" data-wa href="contact.html" aria-label="WhatsApp RJ">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.86 9.86 0 0 0 12.04 2zm5.8 14.03c-.25.69-1.44 1.32-1.99 1.36-.51.05-.99.23-3.33-.69-2.82-1.11-4.6-4-4.74-4.18-.14-.19-1.13-1.5-1.13-2.87s.72-2.03.97-2.31c.25-.28.55-.35.74-.35l.53.01c.17.01.4-.06.62.48.25.6.83 2.06.9 2.21.08.14.12.31.03.5-.1.19-.14.31-.28.48-.14.17-.3.37-.43.5-.14.14-.29.3-.12.58.17.28.74 1.21 1.58 1.96 1.09.97 2 1.27 2.29 1.41.28.14.44.12.61-.07.17-.19.71-.83.9-1.11.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.67-.18 1.36z"/></svg>
   </a>
 </body>
