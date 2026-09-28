@@ -1,0 +1,40 @@
+# Photo credits
+
+Unsplash licence (https://unsplash.com/license) or Pexels licence (https://www.pexels.com/license/); both free for commercial use, no permission needed.
+
+- `home-hero.jpg` — POOJAN THANEKAR — https://unsplash.com/photos/1745429523617-0d837856ca35 — Unsplash licence
+- `home-2.jpg` — Yudhajit Ghosh — https://unsplash.com/photos/1720843059158-8901f5a71b19 — Unsplash licence
+- `home-3.jpg` — Pexels contributor — https://www.pexels.com/photo/6636320/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
+- `about-1.jpg` — Karolina Grabowska — https://unsplash.com/photos/1667400104764-a5fd01a919b0 — Unsplash licence
+- `about-2.jpg` — Vitaly Gariev — https://unsplash.com/photos/1753162656029-781d67c7f6e6 — Unsplash licence
+- `services-1.jpg` — Alesia Kazantceva — https://unsplash.com/photos/1601993957728-1e56ab70c5a8 — Unsplash licence
+- `p1-hero.jpg` — Pexels contributor — https://www.pexels.com/photo/11701115/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
+- `p1-1.jpg` — Pexels contributor — https://www.pexels.com/photo/1571460/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
+- `p1-2.jpg` — Pexels contributor — https://www.pexels.com/photo/5028844/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
+- `p1-3.jpg` — Pexels contributor — https://www.pexels.com/photo/33054912/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
+- `p1-4.jpg` — Puscas Adryan — https://unsplash.com/photos/1772797583328-f83bc3f94f80 — Unsplash licence
+- `p2-hero.jpg` — Zoshua Colah — https://unsplash.com/photos/1719299224395-d972420665a9 — Unsplash licence
+- `p2-1.jpg` — Kirke Kiki — https://unsplash.com/photos/1763914766799-e90cd89d9764 — Unsplash licence
+- `p2-2.jpg` — Pexels contributor — https://www.pexels.com/photo/32735264/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
+- `p2-3.jpg` — Garv Chaplot — https://unsplash.com/photos/1697722231233-41e1dc4c10d5 — Unsplash licence
+- `p2-4.jpg` — Chris Weiher — https://unsplash.com/photos/1787140031683-70098c9f3f97 — Unsplash licence
+- `p3-hero.jpg` — David Kristianto — https://unsplash.com/photos/1710956394109-aaa3710e3a63 — Unsplash licence
+- `p3-1.jpg` — David Kristianto — https://unsplash.com/photos/1740650799998-1986e0640a88 — Unsplash licence
+- `p3-2.jpg` — David Kristianto — https://unsplash.com/photos/1741682740054-5aaa675c4275 — Unsplash licence
+- `p3-3.jpg` — Caroline Badran — https://unsplash.com/photos/1753826944403-3efb2b8347de — Unsplash licence
+- `p3-4.jpg` — Uran Wang — https://unsplash.com/photos/1774938101681-543593721cd3 — Unsplash licence
+- `p4-hero.jpg` — Sanju Pandita — https://unsplash.com/photos/1713192706971-03900dcf5706 — Unsplash licence
+- `p4-1.jpg` — Sanju Pandita — https://unsplash.com/photos/1713192704825-74a0017f585d — Unsplash licence
+- `p4-2.jpg` — Sanju Pandita — https://unsplash.com/photos/1713192706955-6ef5c71811bd — Unsplash licence
+- `p4-3.jpg` — Sanju Pandita — https://unsplash.com/photos/1713192707656-11e779929375 — Unsplash licence
+- `p4-4.jpg` — Sanju Pandita — https://unsplash.com/photos/1713192707527-13b598f4adca — Unsplash licence
+- `p5-hero.jpg` — Salman Rameli — https://unsplash.com/photos/1769473357479-d94ce818dba7 — Unsplash licence
+- `p5-1.jpg` — Caroline Badran — https://unsplash.com/photos/1782838849144-4c2f204463be — Unsplash licence
+- `p5-2.jpg` — Tomi Saputra — https://unsplash.com/photos/1760533534981-e6d2c1c73ea4 — Unsplash licence
+- `p5-3.jpg` — ANGIE BAONGOC — https://unsplash.com/photos/1778726444634-9fc794b73f01 — Unsplash licence
+- `p5-4.jpg` — Elist Nguyen — https://unsplash.com/photos/1771830916709-be8695a09f96 — Unsplash licence
+- `p6-hero.jpg` — Rodeo Project Management Software — https://unsplash.com/photos/1680781336783-8382d382e892 — Unsplash licence
+- `p6-1.jpg` — Copernico — https://unsplash.com/photos/1604328698692-f76ea9498e76 — Unsplash licence
+- `p6-2.jpg` — Finn — https://unsplash.com/photos/1738220387197-e80e92386ae0 — Unsplash licence
+- `p6-3.jpg` — Pexels contributor — https://www.pexels.com/photo/28461045/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
+- `p6-4.jpg` — Pexels contributor — https://www.pexels.com/photo/7888656/ — Pexels licence (replaced 2026-09-28; the Unsplash link failed)
