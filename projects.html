@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2.2">
+  <script src="site.js?v=2.2" defer></script>
 </head>
-<body>
+<body class="page-projects">
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
-  <div class="container nav">
+  <nav class="container nav" aria-label="Main navigation">
     <a class="brand" href="index.html">Studio Tharaavu</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
@@ -24,53 +24,53 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-  </div>
+  </nav>
 </header>
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="page-header">
       <div class="container">
         <span class="eyebrow">Selected work</span>
-        <h1 class="display fade">Projects</h1>
-        <p class="lead fade">Studio Tharaavu designs homes, offices and interiors across India. We stay close to the work, from the first sketch to the last cushion. Twelve years in, a project still starts with a conversation, not a mood board.</p>
+        <h1 class="display" data-lines>Projects</h1>
+        <p class="lead" data-lines>Studio Tharaavu designs homes, offices and interiors across India. We stay close to the work, from the first sketch to the last cushion.</p>
       </div>
     </section>
     <section class="section--tight"><div class="container"><div class="card-grid card-grid--stagger">
-      <a class="card fade" href="project-1.html">
-        <div class="photo"><img src="images/p1-hero.jpg" alt="The Banyan Apartment interior" loading="lazy" width="1200" height="1500"></div>
+      <a class="card" href="project-1.html">
+        <div class="photo" data-photo><img src="images/p1-hero.jpg" alt="The Banyan Apartment interior" width="1200" height="1500" loading="eager" fetchpriority="high" decoding="async"></div>
         <div class="card-meta"><h2 class="card-title">The Banyan Apartment</h2><span class="card-place">Bangalore</span></div>
         <p class="muted">A 3BHK apartment redone around one old banyan tree visible from every room.</p>
       </a>
-      <a class="card fade" href="project-2.html">
-        <div class="photo"><img src="images/p2-hero.jpg" alt="Kayal House interior" loading="lazy" width="1200" height="1500"></div>
+      <a class="card" href="project-2.html">
+        <div class="photo" data-photo><img src="images/p2-3.jpg" alt="A courtyard garden framed by dark stone walls" width="1400" height="933" loading="lazy" decoding="async"></div>
         <div class="card-meta"><h2 class="card-title">Kayal House</h2><span class="card-place">Kochi</span></div>
         <p class="muted">A four-bedroom villa built around a private courtyard, ten minutes from the backwaters.</p>
       </a>
-      <a class="card fade" href="project-3.html">
-        <div class="photo"><img src="images/p3-hero.jpg" alt="The Altitude Penthouse interior" loading="lazy" width="1200" height="1500"></div>
+      <a class="card" href="project-3.html">
+        <div class="photo" data-photo><img src="images/p3-hero.jpg" alt="The Altitude Penthouse interior" width="1200" height="1500" loading="lazy" decoding="async"></div>
         <div class="card-meta"><h2 class="card-title">The Altitude Penthouse</h2><span class="card-place">Mumbai</span></div>
         <p class="muted">A penthouse redesigned around its own skyline view, with a private terrace bar.</p>
       </a>
-      <a class="card fade" href="project-4.html">
-        <div class="photo"><img src="images/p4-hero.jpg" alt="Kanaka Bungalow interior" loading="lazy" width="1200" height="1500"></div>
+      <a class="card" href="project-4.html">
+        <div class="photo" data-photo><img src="images/p4-hero.jpg" alt="Kanaka Bungalow interior" width="1200" height="1500" loading="lazy" decoding="async"></div>
         <div class="card-meta"><h2 class="card-title">Kanaka Bungalow</h2><span class="card-place">Hyderabad</span></div>
         <p class="muted">A family bungalow rebuilt inside, keeping the original structure and garden untouched.</p>
       </a>
-      <a class="card fade" href="project-5.html">
-        <div class="photo"><img src="images/p5-hero.jpg" alt="Maram Café interior" loading="lazy" width="1200" height="1500"></div>
+      <a class="card" href="project-5.html">
+        <div class="photo" data-photo><img src="images/p5-hero.jpg" alt="Maram Café interior" width="1200" height="1500" loading="lazy" decoding="async"></div>
         <div class="card-meta"><h2 class="card-title">Maram Café</h2><span class="card-place">Goa</span></div>
         <p class="muted">A 60-seat garden café built to work as well at breakfast as it does after dark.</p>
       </a>
-      <a class="card fade" href="project-6.html">
-        <div class="photo"><img src="images/p6-hero.jpg" alt="Nodal Works interior" loading="lazy" width="1200" height="1500"></div>
+      <a class="card" href="project-6.html">
+        <div class="photo" data-photo><img src="images/p6-hero.jpg" alt="Nodal Works interior" width="1200" height="1500" loading="lazy" decoding="async"></div>
         <div class="card-meta"><h2 class="card-title">Nodal Works</h2><span class="card-place">Pune</span></div>
         <p class="muted">A 60-person office for a growing team, built around focus rooms instead of open-plan rows.</p>
       </a>
     </div></div></section>
-    <section class="section section--dark">
+    <section class="section section--contact">
       <div class="container cta">
         <span class="eyebrow">Start a project</span>
-        <h2 class="h2 fade">Have a space like these in mind?</h2>
-        <a class="btn" data-wa href="contact.html" style="background:var(--paper);color:var(--ink)">Message us on WhatsApp</a>
+        <h2 class="h2" data-lines>Have a space like these in mind?</h2>
+        <a class="btn" data-wa href="contact.html">Message us on WhatsApp</a>
       </div>
     </section>
   </main>
@@ -79,7 +79,7 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">Studio Tharaavu</a>
-        <p class="muted" style="margin-top:12px">Bangalore, India</p>
+        <p class="muted home-footer-location">Bangalore, India</p>
       </div>
       <ul class="footer-links">
         <li><a href="about.html">About</a></li>

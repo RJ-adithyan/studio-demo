@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2.2">
+  <script src="site.js?v=2.2" defer></script>
 </head>
-<body>
+<body class="page-services">
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
-  <div class="container nav">
+  <nav class="container nav" aria-label="Main navigation">
     <a class="brand" href="index.html">Studio Tharaavu</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
@@ -24,29 +24,29 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-  </div>
+  </nav>
 </header>
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="page-header">
       <div class="container">
         <span class="eyebrow">Services</span>
-        <h1 class="display fade">Services</h1>
-        <p class="lead fade">Studio Tharaavu designs homes, offices and interiors across India. We stay close to the work, from the first sketch to the last cushion. Twelve years in, a project still starts with a conversation, not a mood board.</p>
+        <h1 class="display" data-lines>From the first sketch.</h1>
+        <p class="lead" data-lines>Studio Tharaavu designs homes, offices and interiors across India. We stay close to the work, from the first sketch to the last cushion.</p>
       </div>
     </section>
-    <section class="section--tight"><div class="container"><figure class="photo-big fade"><div class="photo"><img src="images/services-1.jpg" alt="Architectural interior detail" width="1600" height="900"></div></figure></div></section>
+    <section class="section--tight"><div class="container"><figure class="photo-big"><div class="photo" data-photo data-parallax><img src="images/services-1.jpg" alt="Architectural interior detail" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async"></div></figure></div></section>
     <section class="section"><div class="container"><ul class="services-list">
-      <li class="service fade"><span class="service-num">01</span><h2 class="service-name">Full home interiors</h2><p class="service-text">Full home interiors, from space planning to the last piece of furniture.</p></li>
-      <li class="service fade"><span class="service-num">02</span><h2 class="service-name">Architecture and space planning for new builds and renovations.</h2><p class="service-text">Architecture and space planning for new builds and renovations.</p></li>
-      <li class="service fade"><span class="service-num">03</span><h2 class="service-name">Turnkey execution</h2><p class="service-text">Turnkey execution, with our own site team managing the build.</p></li>
-      <li class="service fade"><span class="service-num">04</span><h2 class="service-name">Commercial and hospitality spaces</h2><p class="service-text">Commercial and hospitality spaces: offices, cafés and small retail.</p></li>
-      <li class="service fade"><span class="service-num">05</span><h2 class="service-name">Styling and handover</h2><p class="service-text">Styling and handover, so the home or space is ready to live or work in from day one.</p></li>
+      <li class="service"><span class="service-num">01</span><h2 class="service-name" data-lines>Full home interiors</h2><p class="service-text">Full home interiors, from space planning to the last piece of furniture.</p></li>
+      <li class="service"><span class="service-num">02</span><h2 class="service-name" data-lines>Architecture and space planning</h2><p class="service-text">Architecture and space planning for new builds and renovations.</p></li>
+      <li class="service"><span class="service-num">03</span><h2 class="service-name" data-lines>Turnkey execution</h2><p class="service-text">Turnkey execution, with our own site team managing the build.</p></li>
+      <li class="service"><span class="service-num">04</span><h2 class="service-name" data-lines>Commercial and hospitality spaces</h2><p class="service-text">Commercial and hospitality spaces: offices, cafés and small retail.</p></li>
+      <li class="service"><span class="service-num">05</span><h2 class="service-name" data-lines>Styling and handover</h2><p class="service-text">Styling and handover, so the home or space is ready to live or work in from day one.</p></li>
     </ul></div></section>
-    <section class="section section--dark">
+    <section class="section section--contact">
       <div class="container cta">
         <span class="eyebrow">Start a project</span>
-        <h2 class="h2 fade">Not sure which service fits? Ask us.</h2>
-        <a class="btn" data-wa href="contact.html" style="background:var(--paper);color:var(--ink)">Message us on WhatsApp</a>
+        <h2 class="h2" data-lines>Not sure which service fits? Ask us.</h2>
+        <a class="btn" data-wa href="contact.html">Message us on WhatsApp</a>
       </div>
     </section>
   </main>
@@ -55,7 +55,7 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">Studio Tharaavu</a>
-        <p class="muted" style="margin-top:12px">Bangalore, India</p>
+        <p class="muted home-footer-location">Bangalore, India</p>
       </div>
       <ul class="footer-links">
         <li><a href="about.html">About</a></li>

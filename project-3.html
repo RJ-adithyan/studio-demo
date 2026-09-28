@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2.2">
+  <script src="site.js?v=2.2" defer></script>
 </head>
-<body>
+<body class="page-project">
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
-  <div class="container nav">
+  <nav class="container nav" aria-label="Main navigation">
     <a class="brand" href="index.html">Studio Tharaavu</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
@@ -24,18 +24,18 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-  </div>
+  </nav>
 </header>
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="page-header">
       <div class="container">
         <span class="eyebrow">Project 03</span>
-        <h1 class="display fade">The Altitude Penthouse</h1>
-        <p class="lead fade">A penthouse redesigned around its own skyline view, with a private terrace bar.</p>
+        <h1 class="display" data-lines>The Altitude Penthouse</h1>
+        <p class="lead" data-lines>A penthouse redesigned around its own skyline view, with a private terrace bar.</p>
       </div>
     </section>
-    <section class="section--tight"><div class="container"><figure class="photo-big fade"><div class="photo"><img src="images/p3-hero.jpg" alt="The Altitude Penthouse interior" width="1600" height="900"></div></figure></div></section>
-    <section class="section--tight"><div class="container"><dl class="facts fade">
+    <section class="section--tight"><div class="container"><figure class="photo-big"><div class="photo" data-photo data-parallax><img src="images/p3-hero.jpg" alt="The Altitude Penthouse interior" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async"></div></figure></div></section>
+    <section class="section--tight"><div class="container"><dl class="facts">
       <div><dt>Location</dt><dd>Mumbai</dd></div>
       <div><dt>Type</dt><dd>Penthouse</dd></div>
       <div><dt>Size</dt><dd>2,600 sq ft</dd></div>
@@ -44,33 +44,33 @@
       <div><dt>Year</dt><dd>2025</dd></div>
       <div><dt>Status</dt><dd>Completed</dd></div>
     </dl></div></section>
-    <section class="container"><div class="story fade">
-      <div class="story-head"><span class="story-num">01</span><h2 class="story-title">The brief</h2></div>
+    <section class="container"><div class="story">
+      <div class="story-head"><span class="story-num">01</span><h2 class="story-title" data-lines>The brief</h2></div>
       <div class="story-body"><p>The client, a couple who entertain often, wanted a home that felt calm on weekdays and worked as a party space on weekends, without moving furniture around to switch between the two.</p></div>
     </div></section>
-    <section class="section--tight"><div class="container"><figure class="photo-big fade"><div class="photo"><img src="images/p3-1.jpg" alt="The Altitude Penthouse space" width="1600" height="900" loading="lazy"></div></figure></div></section>
-    <section class="container"><div class="story fade">
-      <div class="story-head"><span class="story-num">02</span><h2 class="story-title">The design</h2></div>
+    <section class="section--tight"><div class="container"><figure class="photo-big"><div class="photo" data-photo><img src="images/p3-1.jpg" alt="The Altitude Penthouse space" width="1600" height="900" loading="lazy" decoding="async"></div></figure></div></section>
+    <section class="container"><div class="story">
+      <div class="story-head"><span class="story-num">02</span><h2 class="story-title" data-lines>The design</h2></div>
       <div class="story-body"><p>The living room opens fully onto the terrace through a sliding glass wall, so the skyline becomes part of the room. A low bar sits at the terrace edge, and the main living furniture was chosen to also work as extra seating when the terrace fills up.</p></div>
     </div></section>
     <section class="section--tight"><div class="container"><div class="photo-pair photo-pair--offset">
-        <figure class="photo fade"><img src="images/p3-2.jpg" alt="The Altitude Penthouse interior detail" loading="lazy" width="1200" height="1500"></figure>
-        <figure class="photo fade"><img src="images/p3-3.jpg" alt="The Altitude Penthouse room view" loading="lazy" width="1200" height="1500"></figure>
+        <figure class="photo" data-photo><img src="images/p3-2.jpg" alt="The Altitude Penthouse interior detail" width="1200" height="1500" loading="lazy" decoding="async"></figure>
+        <figure class="photo" data-photo><img src="images/p3-3.jpg" alt="The Altitude Penthouse room view" width="1200" height="1500" loading="lazy" decoding="async"></figure>
       </div></div></section>
-    <section class="container"><div class="story fade">
-      <div class="story-head"><span class="story-num">03</span><h2 class="story-title">The materials</h2></div>
+    <section class="container"><div class="story">
+      <div class="story-head"><span class="story-num">03</span><h2 class="story-title" data-lines>The materials</h2></div>
       <div class="story-body"><p>Fluted walnut panelling, a dark terrazzo floor, and brushed brass fittings throughout, picked to hold their finish under Mumbai's coastal humidity and to look good under both daylight and the terrace's evening lighting.</p></div>
     </div></section>
-    <section class="section--tight"><div class="container"><figure class="photo-big fade"><div class="photo"><img src="images/p3-4.jpg" alt="The Altitude Penthouse material detail" width="1600" height="900" loading="lazy"></div></figure></div></section>
-    <section class="section"><div class="container">
+    <section class="section--tight"><div class="container"><figure class="photo-big"><div class="photo" data-photo><img src="images/p3-4.jpg" alt="The Altitude Penthouse material detail" width="1600" height="900" loading="lazy" decoding="async"></div></figure></div></section>
+    <section class="section next-project"><div class="container">
       <p><a class="link" href="project-4.html">Next project: Kanaka Bungalow</a></p>
       <p><a class="link" href="projects.html">Back to all projects</a></p>
     </div></section>
-    <section class="section section--dark">
+    <section class="section section--contact">
       <div class="container cta">
         <span class="eyebrow">Start a project</span>
-        <h2 class="h2 fade">Planning something similar?</h2>
-        <a class="btn" data-wa href="contact.html" style="background:var(--paper);color:var(--ink)">Message us on WhatsApp</a>
+        <h2 class="h2" data-lines>Planning something similar?</h2>
+        <a class="btn" data-wa href="contact.html">Message us on WhatsApp</a>
       </div>
     </section>
   </main>
@@ -79,7 +79,7 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">Studio Tharaavu</a>
-        <p class="muted" style="margin-top:12px">Bangalore, India</p>
+        <p class="muted home-footer-location">Bangalore, India</p>
       </div>
       <ul class="footer-links">
         <li><a href="about.html">About</a></li>

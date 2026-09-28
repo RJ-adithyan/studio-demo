@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2.2">
+  <script src="site.js?v=2.2" defer></script>
 </head>
-<body>
+<body class="page-contact">
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
-  <div class="container nav">
+  <nav class="container nav" aria-label="Main navigation">
     <a class="brand" href="index.html">Studio Tharaavu</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
@@ -24,14 +24,14 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-  </div>
+  </nav>
 </header>
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="page-header">
       <div class="container">
         <span class="eyebrow">Get in touch</span>
-        <h1 class="display fade">Contact</h1>
-        <p class="lead fade">Based in Bangalore, working on projects across India.</p>
+        <h1 class="display" data-lines>Contact</h1>
+        <p class="lead" data-lines>Based in Bangalore, working on projects across India.</p>
       </div>
     </section>
     <section class="section"><div class="container contact-block">
@@ -40,13 +40,13 @@
         <div><dt>Address</dt><dd>Studio Tharaavu, 4th Floor, Sampige Road, Malleswaram, Bangalore 560003</dd></div>
         <div><dt>Email</dt><dd><a href="mailto:hello@studiotharaavu.in">hello@studiotharaavu.in</a></dd></div>
       </dl>
-      <figure class="photo fade"><img src="images/about-2.jpg" alt="Studio team working together" loading="lazy" width="1200" height="1500"></figure>
+      <figure class="photo" data-photo data-parallax><img src="images/about-2.jpg" alt="Studio team working together" width="1200" height="1500" loading="eager" fetchpriority="high" decoding="async"></figure>
     </div></section>
-    <section class="section section--dark">
+    <section class="section section--contact">
       <div class="container cta">
         <span class="eyebrow">Start a project</span>
-        <h2 class="h2 fade">Tell us about your space.</h2>
-        <a class="btn" data-wa href="contact.html" style="background:var(--paper);color:var(--ink)">Message us on WhatsApp</a>
+        <h2 class="h2" data-lines>Tell us about your space.</h2>
+        <a class="btn" data-wa href="contact.html">Message us on WhatsApp</a>
       </div>
     </section>
   </main>
@@ -55,7 +55,7 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">Studio Tharaavu</a>
-        <p class="muted" style="margin-top:12px">Bangalore, India</p>
+        <p class="muted home-footer-location">Bangalore, India</p>
       </div>
       <ul class="footer-links">
         <li><a href="about.html">About</a></li>
