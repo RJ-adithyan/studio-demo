@@ -25,7 +25,7 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
     setTimeout(() => {
       document.documentElement.classList.remove('page-entering');
       window.ScrollTrigger?.refresh();
-    }, 1450);
+    }, phone ? 800 : 1450);
   }
 
   document.querySelectorAll('[data-wa]').forEach(link => {
@@ -155,14 +155,14 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
   gsapReady.catch(showAll);
 
   async function syncScrolling() {
-    if (reduced.matches || !desktop.matches) {
+    if (reduced.matches || !desktop.matches || navigator.maxTouchPoints > 0) {
       lenis?.destroy();
       lenis = undefined;
       return;
     }
     try {
       await Promise.all([gsapReady.catch(() => {}), loadScript('https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js')]);
-      if (!lenis && !reduced.matches && desktop.matches) {
+      if (!lenis && !reduced.matches && desktop.matches && navigator.maxTouchPoints === 0) {
         const ticker = window.gsap?.ticker;
         lenis = new window.Lenis({ duration: 1, easing: t => 1 - Math.pow(1 - t, 5), smoothWheel: true, syncTouch: false, autoRaf: !ticker });
         lenis.on('scroll', () => window.ScrollTrigger?.update());
@@ -250,6 +250,8 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
       const { gsap, ScrollTrigger, SplitText, CustomEase } = window;
       if (!gsap || !ScrollTrigger) return showAll();
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({ ignoreMobileResize: true });
+      ScrollTrigger.normalizeScroll(false);
       if (SplitText) gsap.registerPlugin(SplitText);
       if (CustomEase) gsap.registerPlugin(CustomEase);
       const fastEase = CustomEase ? CustomEase.create('tharaavuFast', 'M0,0 C0.094,0.026 0.124,0.127 0.157,0.29 0.197,0.486 0.254,0.8 0.348,0.884 0.42,0.949 0.374,1 1,1') : 'power2.inOut';
@@ -305,7 +307,7 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
         // ponytail: a late web font changes line breaks, so re-split lines that have not revealed yet.
         document.fonts.addEventListener('loadingdone', onResize);
 
-        const first = phone && document.body.matches('.page-about, .page-services') ? null : heroPhoto();
+        const first = heroPhoto();
         if (first) {
           const image = first.querySelector('img');
           const mobile = phone;
@@ -341,36 +343,67 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
           textItems.forEach(item => { item.trigger?.kill(); item.tween?.kill(); item.split?.revert(); });
         };
       });
-      media.add('(min-width: 1200px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)', () => {
+      media.add({ motion: '(prefers-reduced-motion: no-preference)', compact: '(max-width: 1199px)' }, context => {
+        if (!context.conditions.motion) return;
+        const compact = context.conditions.compact;
         const vision = document.querySelector('.about-vision [data-vision-photo]');
         if (vision) {
           gsap.timeline({
             defaults: { ease: 'none' },
             scrollTrigger: { trigger: vision, start: 'top bottom', end: 'top top', scrub: .6 },
           })
-            .fromTo(vision, { clipPath: 'inset(18% 24% 18% 24%)' }, { clipPath: 'inset(0% 0% 0% 0%)' }, 0)
-            .fromTo(vision.querySelector('img'), { scale: 1.2 }, { scale: 1 }, 0);
+            .fromTo(vision, { clipPath: compact ? 'inset(10% 12% 10% 12%)' : 'inset(18% 24% 18% 24%)' }, { clipPath: 'inset(0% 0% 0% 0%)' }, 0)
+            .fromTo(vision.querySelector('img'), { scale: compact ? 1.1 : 1.2 }, { scale: 1 }, 0);
         }
-        document.querySelectorAll('.about-steps .service-heading, .services-stack .service-heading').forEach(heading => {
+        document.querySelectorAll(compact ? '.about-steps .service-heading' : '.about-steps .service-heading, .services-stack .service-heading').forEach(heading => {
           gsap.timeline({
             defaults: { ease: 'none' },
             scrollTrigger: { trigger: heading.closest('.service'), start: 'top bottom', end: 'top 30%', scrub: .1 },
           })
-            .fromTo(heading.querySelector('.service-bracket--left'), { xPercent: 0 }, { xPercent: -90 }, 0)
-            .fromTo(heading.querySelector('.service-bracket--right'), { xPercent: 0 }, { xPercent: 90 }, 0);
+            .fromTo(heading.querySelector('.service-bracket--left'), { xPercent: 0 }, { xPercent: compact ? -55 : -90 }, 0)
+            .fromTo(heading.querySelector('.service-bracket--right'), { xPercent: 0 }, { xPercent: compact ? 55 : 90 }, 0);
         });
         const stack = document.querySelector('.services-stack');
         if (stack) {
           document.documentElement.classList.add('motion-stack-ready');
           const cards = [...stack.querySelectorAll('.service')];
+          let stackWidth = innerWidth;
+          let stackTimer;
+          const syncStackCards = () => {
+            const viewportHeight = window.visualViewport?.height || innerHeight;
+            cards.forEach((card, index) => {
+              card.classList.remove('stack-scroll');
+              if (compact && card.offsetHeight > viewportHeight - parseFloat(getComputedStyle(card).top)) {
+                card.classList.add('stack-scroll');
+              }
+            });
+          };
           cards.forEach((card, index) => {
             card.style.setProperty('--stack-index', index);
+          });
+          syncStackCards();
+          cards.forEach((card, index) => {
             if (index === cards.length - 1) return;
+            if (card.classList.contains('stack-scroll')) return;
             gsap.to(card, {
-              scale: .95, y: 50, ease: 'none',
+              scale: compact ? .98 : .95, y: compact ? 16 : 50, ease: 'none',
               scrollTrigger: { trigger: cards[index + 1], start: 'top bottom', end: 'top 60%', scrub: .2 },
             });
           });
+          const onStackResize = () => {
+            if (innerWidth === stackWidth) return;
+            stackWidth = innerWidth;
+            clearTimeout(stackTimer);
+            stackTimer = setTimeout(() => { syncStackCards(); ScrollTrigger.refresh(); }, 120);
+          };
+          addEventListener('resize', onStackResize);
+          sampleBar?.querySelector('.sample-bar-close').addEventListener('click', syncStackCards);
+          stack.cleanup = () => {
+            clearTimeout(stackTimer);
+            removeEventListener('resize', onStackResize);
+            sampleBar?.querySelector('.sample-bar-close').removeEventListener('click', syncStackCards);
+            cards.forEach(card => card.classList.remove('stack-scroll'));
+          };
           ScrollTrigger.refresh();
         }
         document.querySelectorAll('.works-item').forEach(item => {
@@ -381,8 +414,8 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
           const frame = item.querySelector('.works-image-wrapper');
           const img = frame.querySelector('img');
           const edgeX = (bracket, fraction) => () => heading.clientWidth * fraction - bracket.offsetLeft - bracket.offsetWidth / 2;
-          const leftX = edgeX(left, .1);
-          const rightX = edgeX(right, .9);
+          const leftX = edgeX(left, compact ? .04 : .1);
+          const rightX = edgeX(right, compact ? .96 : .9);
 
           gsap.timeline({
             defaults: { ease: 'none' },
@@ -391,8 +424,8 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
             .fromTo(left, { x: 0 }, { x: leftX }, 0)
             .fromTo(right, { x: 0 }, { x: rightX }, 0)
             .fromTo(title, { letterSpacing: '0em' }, { letterSpacing: '0.04em' }, 0)
-            .fromTo(frame, { scale: .4, yPercent: 0 }, { scale: 1, yPercent: 0 }, 0)
-            .fromTo(img, { scale: 1.75 }, { scale: 1 }, 0);
+            .fromTo(frame, { scale: compact ? .6 : .4, yPercent: 0 }, { scale: 1, yPercent: 0 }, 0)
+            .fromTo(img, { scale: compact ? 1.3 : 1.75 }, { scale: 1 }, 0);
 
           gsap.timeline({
             defaults: { ease: 'none', immediateRender: false },
@@ -401,8 +434,8 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
             .fromTo(left, { x: leftX }, { x: 0 }, 0)
             .fromTo(right, { x: rightX }, { x: 0 }, 0)
             .fromTo(title, { letterSpacing: '0.04em' }, { letterSpacing: '0em' }, 0)
-            .fromTo(frame, { scale: 1, yPercent: 0 }, { scale: .2, yPercent: -40 }, 0)
-            .fromTo(img, { scale: 1 }, { scale: 1.75 }, 0);
+            .fromTo(frame, { scale: 1, yPercent: 0 }, { scale: compact ? .6 : .2, yPercent: compact ? -12 : -40 }, 0)
+            .fromTo(img, { scale: 1 }, { scale: compact ? 1.3 : 1.75 }, 0);
         });
         const first = heroPhoto();
         document.querySelectorAll('[data-photo]').forEach(frame => {
@@ -410,17 +443,18 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
           const img = frame.querySelector('img');
           if (!img) return;
           const tl = gsap.timeline({ scrollTrigger: { trigger: frame, start: 'clamp(top bottom)', end: 'bottom bottom', scrub: true } });
-          tl.fromTo(frame, { clipPath: 'inset(0% 20px 0%)' }, { clipPath: 'inset(0% 0px 0%)', ease: 'none' })
+          tl.fromTo(frame, { clipPath: `inset(0% ${compact ? 10 : 20}px 0%)` }, { clipPath: 'inset(0% 0px 0%)', ease: 'none' })
             .fromTo(img, { scale: 1.015 }, { scale: 1, ease: 'none' }, 0);
         });
         document.querySelectorAll('[data-parallax]').forEach(frame => {
-          gsap.fromTo(frame.querySelector('img'), { yPercent: -8.333 }, {
-            yPercent: 8.333, ease: 'none',
+          gsap.fromTo(frame.querySelector('img'), { yPercent: compact ? -4.166 : -8.333 }, {
+            yPercent: compact ? 4.166 : 8.333, ease: 'none',
             scrollTrigger: { trigger: frame, start: 'top bottom', end: 'bottom top', scrub: true },
           });
         });
         return () => {
           document.documentElement.classList.remove('motion-stack-ready');
+          stack?.cleanup?.();
           stack?.querySelectorAll('.service').forEach(card => card.style.removeProperty('--stack-index'));
         };
       });
