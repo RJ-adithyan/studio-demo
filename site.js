@@ -305,7 +305,7 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
         // ponytail: a late web font changes line breaks, so re-split lines that have not revealed yet.
         document.fonts.addEventListener('loadingdone', onResize);
 
-        const first = heroPhoto();
+        const first = phone && document.body.matches('.page-about, .page-services') ? null : heroPhoto();
         if (first) {
           const image = first.querySelector('img');
           const mobile = phone;
@@ -342,6 +342,37 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
         };
       });
       media.add('(min-width: 1200px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)', () => {
+        const vision = document.querySelector('.about-vision [data-vision-photo]');
+        if (vision) {
+          gsap.timeline({
+            defaults: { ease: 'none' },
+            scrollTrigger: { trigger: vision, start: 'top bottom', end: 'top top', scrub: .6 },
+          })
+            .fromTo(vision, { clipPath: 'inset(18% 24% 18% 24%)' }, { clipPath: 'inset(0% 0% 0% 0%)' }, 0)
+            .fromTo(vision.querySelector('img'), { scale: 1.2 }, { scale: 1 }, 0);
+        }
+        document.querySelectorAll('.about-steps .service-heading, .services-stack .service-heading').forEach(heading => {
+          gsap.timeline({
+            defaults: { ease: 'none' },
+            scrollTrigger: { trigger: heading.closest('.service'), start: 'top bottom', end: 'top 30%', scrub: .1 },
+          })
+            .fromTo(heading.querySelector('.service-bracket--left'), { xPercent: 0 }, { xPercent: -90 }, 0)
+            .fromTo(heading.querySelector('.service-bracket--right'), { xPercent: 0 }, { xPercent: 90 }, 0);
+        });
+        const stack = document.querySelector('.services-stack');
+        if (stack) {
+          document.documentElement.classList.add('motion-stack-ready');
+          const cards = [...stack.querySelectorAll('.service')];
+          cards.forEach((card, index) => {
+            card.style.setProperty('--stack-index', index);
+            if (index === cards.length - 1) return;
+            gsap.to(card, {
+              scale: .95, y: 50, ease: 'none',
+              scrollTrigger: { trigger: cards[index + 1], start: 'top bottom', end: 'top 60%', scrub: .2 },
+            });
+          });
+          ScrollTrigger.refresh();
+        }
         document.querySelectorAll('.works-item').forEach(item => {
           const heading = item.querySelector('.works-heading');
           const left = item.querySelector('.works-bracket--left');
@@ -388,6 +419,10 @@ const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site 
             scrollTrigger: { trigger: frame, start: 'top bottom', end: 'bottom top', scrub: true },
           });
         });
+        return () => {
+          document.documentElement.classList.remove('motion-stack-ready');
+          stack?.querySelectorAll('.service').forEach(card => card.style.removeProperty('--stack-index'));
+        };
       });
       ScrollTrigger.refresh();
       showAll();

@@ -545,6 +545,43 @@ html.lenis, html.lenis body { height: auto; }
   .section--contact { padding-block: 140px; margin-top: 100px; }
   .next-project { padding-block: 100px 0; }
 }
+/* Studio and process motion keeps the existing paper palette and type. */
+.about-cover .about-statement { max-width: 10em; }
+.about-story .split { align-items: start; }
+.about-story .prose { max-width: 42em; }
+.about-vision [data-vision-photo] { overflow: hidden; }
+.service-heading { display: flex; align-items: baseline; gap: .12em; min-width: 0; }
+.service-heading .service-name { min-width: 0; }
+.service-bracket { display: inline-block; flex: none; font-family: var(--serif); color: var(--clay); }
+.cover-bracket-heading { display: flex; align-items: baseline; gap: .12em; min-width: 0; }
+.cover-bracket-heading .display { min-width: 0; }
+.cover-bracket-heading .service-bracket { font-size: clamp(48px, 6.5vw, 88px); line-height: 1.04; }
+.services-stack .service { min-width: 0; }
+@media (max-width: 1199px) {
+  .service-bracket { display: none; }
+}
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .about-cover { padding-bottom: 100px; }
+  .about-cover > .container { display: block; }
+  .about-cover .about-statement { font-size: clamp(100px, 8.6vw, 170px); line-height: .93; }
+  .about-cover .lead { margin: 60px 0 0 auto; max-width: 31em; }
+  .services-cover > .container { display: block; }
+  .services-cover .lead { margin: 40px 0 0 auto; max-width: 31em; }
+  .about-story .split { grid-template-columns: 1fr 1.7fr; gap: 9vw; }
+  .about-story .split > :first-child { position: sticky; top: 130px; }
+  .about-story .prose p { margin-bottom: 2.1em; }
+  .about-vision { padding-block: 0; }
+  .about-vision .container { max-width: none; padding-inline: 0; }
+  .about-vision .photo { aspect-ratio: 16 / 8; }
+  html.motion-stack-ready .services-stack { border-top: 0; padding-bottom: 120px; }
+  html.motion-stack-ready .services-stack .service {
+    position: sticky; top: calc(112px + 80px * var(--stack-index)); z-index: calc(1 + var(--stack-index));
+    min-height: 260px; padding: 42px 48px; margin-bottom: 28px;
+    grid-template-columns: 60px minmax(0, 1.25fr) minmax(0, 1fr); align-items: start;
+    background: var(--paper); border: 1px solid var(--line); box-shadow: 0 12px 32px rgba(29,27,24,.06);
+    transform-origin: top center;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   html.js.page-leave-active main, html.js.page-entering main { transform: none !important; clip-path: none !important; opacity: 1 !important; }
