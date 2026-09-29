@@ -1,5 +1,5 @@
 // Shared navigation and motion. Content stays readable when a CDN is unavailable.
-const WHATSAPP_NUMBER = "";
+const WHATSAPP_NUMBER = "918921983002";
 const WHATSAPP_TEXT = "Hi RJ, I saw the Studio Tharaavu sample. I'd like a site like this for my studio.";
 
 (() => {
